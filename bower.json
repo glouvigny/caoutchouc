@@ -1,0 +1,31 @@
+{
+  "name": "Caoutchouc",
+  "version": "0.8.0",
+  "main": "init.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "ext/"
+  ],
+  "dependencies": {
+    "ashe": "Tuxkowo/ashe",
+    "lodash": "~2.4.1",
+    "requirejs": "jrburke/requirejs-bower#~2.1.15"
+  },
+  "authors": [
+    "Guillaume Louvigny <caoutchouc@ohai.fr>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "chrome",
+    "firefox",
+    "extension",
+    "addon"
+  ],
+  "license": "MIT"
+}

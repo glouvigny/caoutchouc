@@ -1,0 +1,46 @@
+define(function (require, exports, module) {
+    var workers = [];
+    var recvs = [];
+
+    var Messaging = {
+        send: function (options) {
+            options.origin = 'background';
+
+            chrome.runtime.sendMessage(options);
+            chrome.tabs.query({}, function(tabs) {
+                for (var i in tabs) {
+                    if (tabs.hasOwnProperty(i)) {
+                        var tab = tabs[i];
+
+                        chrome.tabs.sendMessage(tab.id, options);
+                    }
+                }
+            });
+        },
+
+        recv: function (options, sender, cb) {
+            if (typeof options !== 'object' || options.origin == 'background') {
+                return false;
+            }
+
+            for (var i = recvs.length - 1; i >= 0; i--) {
+                var recv = recvs[i];
+                recv(options);
+            }
+        },
+
+        addRecv: function (recv) {
+            recvs.push(recv);
+        },
+
+        removeRecv: function (recv) {
+            var pos = recvs.indexOf(recv);
+
+            recvs.splice(pos, 1);
+        }
+    };
+
+    chrome.runtime.onMessage.addListener(Messaging.recv);
+
+    module.exports = Messaging;
+});
