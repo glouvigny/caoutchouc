@@ -1,6 +1,6 @@
 define(function (require, exports, module) {
-    var Ashe = require('../ext/ashe/ashe');
-    var Resources = require('../browser/browser').get('resources');
+    var Ashe = require('./ext/ashe/ashe');
+    var Resources = require('./browser').get('resources');
 
     var Templating = {
         templates: {},

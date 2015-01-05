@@ -4,7 +4,7 @@ define(function (require, exports, module) {
     var self = require('sdk/self');
     var pageMod = require('sdk/page-mod');
 
-    var Messaging = require('../browser').get('messaging');
+    var Messaging = require('../../browser').get('messaging');
 
     var manifest = JSON.parse(self.data.load('manifest.json'));
 

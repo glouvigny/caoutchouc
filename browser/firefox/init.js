@@ -1,5 +1,5 @@
 define(function (require, exports, module) {
-    var Browser = require('../browser');
+    var Browser = require('../../browser');
 
     Browser
         .set('http-client', require('./http-client'))

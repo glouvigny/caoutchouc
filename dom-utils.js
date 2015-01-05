@@ -1,5 +1,5 @@
 define(function (require, exports, module) {
-    var Dom = require('./browser/browser').get('dom');
+    var Dom = require('./browser').get('dom');
 
     var DomUtils = {};
 

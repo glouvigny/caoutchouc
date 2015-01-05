@@ -1,7 +1,7 @@
 define(function (require, exports, module) {
     var _ = require('./ext/lodash/dist/lodash');
-    var Async = require('./browser/browser').get('async');
-    var Messaging = require('./browser/browser').get('messaging');
+    var Async = require('./browser').get('async');
+    var Messaging = require('./browser').get('messaging');
 
     var Router = function () {
         this.modules = [];

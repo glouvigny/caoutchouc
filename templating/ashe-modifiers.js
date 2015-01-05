@@ -3,7 +3,7 @@
  */
 define(function (require, exports, module) {
     var Ashe = require('../ext/ashe/ashe');
-    var Browser = require('../browser/browser');
+    var Browser = require('../browser');
 
     Ashe.addModifiers({
         trans: function (str, args) {
