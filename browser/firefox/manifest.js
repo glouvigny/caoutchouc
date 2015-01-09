@@ -6,7 +6,7 @@ define(function (require, exports, module) {
 
     var Messaging = require('../../browser').get('messaging');
 
-    var manifest = JSON.parse(self.data.load('manifest.json'));
+    var manifest = JSON.parse(self.data.load('manifest-extras.json'));
 
     var relativeToData = function (path) {
         return self.data.url(path.replace(/^data\//, ''));
