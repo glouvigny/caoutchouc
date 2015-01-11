@@ -2,15 +2,15 @@ define(function (require, exports, module) {
     var HttpResponse = require('../../http/response');
     var HttpUtils = require('../../http/utils');
 
-    var HttpClient = {
-        request: function (method, url, data, cb) {
+    var request = function (method, url, data) {
+        return new Promise(function(resolve, reject) {
             var xhr = new XMLHttpRequest();
             var params = null;
             xhr.onreadystatechange = function() {
                 if (xhr.readyState != 4)
                     return;
 
-                return cb(new HttpResponse(
+                return resolve(new HttpResponse(
                     xhr.status,
                     xhr.responseText,
                     xhr.getAllResponseHeaders()
@@ -26,13 +26,16 @@ define(function (require, exports, module) {
             }
             
             return xhr.send(params);
+        });
+    };
+
+
+    var HttpClient = {
+        get: function (url, parameters) {
+            return request('GET', HttpUtils.buildUrl(url, parameters), {});
         },
-        get: function (url, parameters, cb) {
-            return HttpClient.request('GET',
-                HttpUtils.buildUrl(url, parameters), {}, cb);
-        },
-        post: function (url, parameters, cb) {
-            return HttpClient.request('POST', url, parameters, cb);
+        post: function (url, parameters) {
+            return request('POST', url, parameters);
         },
     };
 
