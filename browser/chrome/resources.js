@@ -1,24 +1,27 @@
 define(function (require, exports, module) {
     var Resources = {
-        load: function (file, cb) {
-            return Resources.url(file, function (url) {
-                var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState != 4)
-                        return;
+        load: function (file) {
+            return new Promise(function (resolve, reject) {
+                return Resources.url(file)
+                    .then(function (url) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.onreadystatechange = function() {
+                            if (xhr.readyState != 4)
+                                return;
 
-                    return cb(xhr.responseText);
-                };
+                            return resolve(xhr.responseText);
+                        };
 
-                xhr.open('GET', url, true);
-                return xhr.send(null);
+                        xhr.open('GET', url, true);
+                        return xhr.send(null);
+                    });
             });
         },
 
-        url: function (file, cb) {
+        url: function (file) {
             var url = chrome.extension.getURL('data/' + file);
 
-            return cb(url);
+            return Promise.resolve(url);
         }
     };
 

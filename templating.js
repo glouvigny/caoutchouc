@@ -18,13 +18,14 @@ define(function (require, exports, module) {
                 return cb(Templating.templates[file]);
             }
 
-            return Resources.load(file, function (template) {
-                var tpl = template;
+            return Resources.load(file)
+                .then(function (template) {
+                    var tpl = template;
 
-                Templating.templates[file] = tpl;
+                    Templating.templates[file] = tpl;
 
-                return cb(tpl);
-            });
+                    return cb(tpl);
+                });
         },
     };
 
