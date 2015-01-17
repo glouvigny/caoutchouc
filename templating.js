@@ -5,17 +5,18 @@ define(function (require, exports, module) {
     var Templating = {
         templates: {},
 
-        render: function (template, vars, cb) {
-            return Templating.loadTemplate(template, function (tpl) {
-                var rendered = Ashe.parse(tpl, vars);
+        render: function (template, vars) {
+            return Templating.loadTemplate(template)
+                .then(function (tpl) {
+                    var rendered = Ashe.parse(tpl, vars);
 
-                return cb(rendered);
-            });
+                    return Promise.resolve(rendered);
+                });
         },
 
-        loadTemplate: function (file, cb) {
+        loadTemplate: function (file) {
             if (Templating.templates[file] !== undefined) {
-                return cb(Templating.templates[file]);
+                return Promise.resolve(Templating.templates[file]);
             }
 
             return Resources.load(file)
@@ -24,7 +25,7 @@ define(function (require, exports, module) {
 
                     Templating.templates[file] = tpl;
 
-                    return cb(tpl);
+                    return Promise.resolve(tpl);
                 });
         },
     };
