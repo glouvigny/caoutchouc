@@ -13,6 +13,8 @@ define(function (require, exports, module) {
     };
 
     Router.prototype.registerModule = function (module) {
+        module.loadSettings();
+
         this.modules.push(module);
     };
 
