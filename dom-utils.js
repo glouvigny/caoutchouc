@@ -18,11 +18,13 @@ define(function (require, exports, module) {
         return dom;
     };
 
-    DomUtils.keepTextOnly = function (dom) {
+    DomUtils.keepTextOnly = function (dom, convertBr) {
         var brs = dom.querySelectorAll('br');
 
-        for (var i in brs) {
-            brs[i].textContent = '\n';
+        if (convertBr === true) {
+            for (var i in brs) {
+                brs[i].textContent = '\n';
+            }
         }
 
         var html = dom.textContent
