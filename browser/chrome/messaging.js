@@ -2,6 +2,8 @@ define(function (require, exports, module) {
     var workers = [];
     var recvs = [];
 
+    var undelivered = [];
+
     var Messaging = {
         send: function (options) {
             options.origin = 'background';
@@ -23,6 +25,10 @@ define(function (require, exports, module) {
                 return false;
             }
 
+            if (recvs.length === 0) {
+                undelivered.push(options);
+            }
+
             for (var i = recvs.length - 1; i >= 0; i--) {
                 var recv = recvs[i];
                 recv(options);
@@ -30,6 +36,16 @@ define(function (require, exports, module) {
         },
 
         addRecv: function (recv) {
+            if (recvs.length === 0) {
+                for (var i in undelivered) {
+                    if (undelivered.hasOwnProperty(i)) {
+                        recv(undelivered[i]);
+                    }
+                }
+
+                undelivered = [];
+            }
+
             recvs.push(recv);
         },
 
