@@ -3,9 +3,21 @@ define(function (require, exports, module) {
     var Async = require('./browser').get('async');
     var Messaging = require('./browser').get('messaging');
 
-    var Router = function () {
+    var Router = function (modules) {
+        if (modules === undefined) {
+            modules = [];
+        }
+
         this.modules = [];
         this.messaging = Messaging;
+
+        for (var i in modules) {
+            if (modules.hasOwnProperty(i)) {
+                var moduleInstance = new modules[i](this);
+
+                this.registerModule(moduleInstance);
+            }
+        }
 
         this.messaging.addRecv(function (data) {
             this.dispatch(data);
