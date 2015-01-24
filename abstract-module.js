@@ -12,6 +12,34 @@ define(function (require, exports, module) {
         this.context = {};
     };
 
+    var keepRegisteredSettings = function (registered, loaded) {
+        if (typeof registered !== 'object' || registered === null) {
+            if (loaded !== undefined && (
+                typeof loaded !== 'object' || loaded === null)
+            ) {
+                return loaded;
+            }
+
+            return registered;
+        }
+
+        var output = {};
+
+        for (var i in registered) {
+            if (registered.hasOwnProperty(i)) {
+                var loaded_sub = undefined;
+
+                if (loaded !== undefined) {
+                    loaded_sub = loaded[i];
+                }
+
+                output[i] = keepRegisteredSettings(registered[i], loaded_sub);
+            }
+        }
+
+        return output;
+    };
+
     Abstract.prototype.loadSettings = function () {
         if (this.id === null || this.context.settings === undefined) {
             return;
@@ -19,6 +47,8 @@ define(function (require, exports, module) {
 
         Persistance.get('settings_' + this.id, this.context.settings)
             .then(function (settings) {
+                settings = keepRegisteredSettings(this.context.settings,
+                    settings);
                 this.context.settings = settings;
             }.bind(this));
     };
