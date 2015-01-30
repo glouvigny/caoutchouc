@@ -1,6 +1,4 @@
 {
-  "global": {
-    "require": true,
-    "define": true
-  }
+  "predef": ["require", "define"]
 }
+

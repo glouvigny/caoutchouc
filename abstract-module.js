@@ -27,7 +27,7 @@ define(function (require, exports, module) {
 
         for (var i in registered) {
             if (registered.hasOwnProperty(i)) {
-                var loaded_sub = undefined;
+                var loaded_sub;
 
                 if (loaded !== undefined) {
                     loaded_sub = loaded[i];
