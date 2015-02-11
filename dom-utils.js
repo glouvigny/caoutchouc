@@ -8,11 +8,43 @@ define(function (require, exports, module) {
     var regexpHttpOrS = /https?:\/\//;
     var regexpProtocolLess = /\/\//g;
 
-    DomUtils.removeScripts = function (dom) {
-        var scripts = dom.querySelectorAll('script');
+    DomUtils.whiteListTags = function (dom, tags) {
+        tags = tags || [];
 
-        for (var i in scripts) {
-            scripts[i].textContent = '';
+        var elts = dom.querySelectorAll('*');
+
+        for (var i = 0; i < elts.length; i++) {
+            var elt = elts[i];
+
+            if (tags.indexOf(elt.nodeName.toLowerCase()) === -1 &&
+                elt.parentNode !== undefined) {
+                elt.parentNode.removeChild(elt);
+            }
+        }
+
+        return dom;
+    };
+
+    var whiteListAttr = function (elt, attrs) {
+        for (var j = 0; j < elt.attributes.length; j++) {
+            var attr = elt.attributes[j];
+
+            if (attrs.indexOf(attr.nodeName) === -1) {
+                elt.removeAttribute(attr.nodeName);
+            }
+        }
+    };
+
+    DomUtils.whiteListAttr = function (dom, attrs) {
+        attrs = attrs || [];
+
+        whiteListAttr(dom, attrs);
+
+        var elts = dom.querySelectorAll('*');
+
+        for (var i = 0; i < elts.length; i++) {
+            var elt = elts[i];
+            whiteListAttr(elt, attrs);
         }
 
         return dom;
