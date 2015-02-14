@@ -22,5 +22,13 @@ define(function (require, exports, module) {
         _if: function (test, _true, _false) {
             return test ? _true : _false;
         },
+
+        duration: function (length) {
+            var min = parseInt(length / 60, 10);
+            var sec = length % 60;
+
+            return '' + (min < 10 ? '0' : '') + min +
+                ':' + (sec < 10 ? '0' : '') + sec;
+        },
     });
 });
