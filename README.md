@@ -28,12 +28,12 @@ Features supported
 
 | Feature        | Chrome/Opera | Firefox | Safari | Project Spartan |
 |----------------|--------------|---------|--------|-----------------|
-| DOM Parsing    |       ✓      |    ✓    |        |                 |
+| DOM Parsing    |       ✓      |    ✓    |    ✓   |                 |
 | Hotkeys        |       ✓      |         |        |                 |
-| HTTP Client    |       ✓      |    ✓    |        |                 |
+| HTTP Client    |       ✓      |    ✓    |    ✓   |                 |
 | I18N           |       ✓      |    ✓    |        |                 |
-| Messaging      |       ✓      |    ✓    |        |                 |
+| Messaging      |       ✓      |    ✓    |    ✓   |                 |
 | Notifications  |       ✓      |    ✓    |        |                 |
 | Persistance    |       ✓      |    ✓    |        |                 |
-| Resources      |       ✓      |    ✓    |        |                 |
+| Resources      |       ✓      |    ✓    |    ✓   |                 |
 | Windowing/Tabs |       ✓      |    ✓    |        |                 |
