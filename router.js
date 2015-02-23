@@ -1,7 +1,8 @@
 define(function (require, exports, module) {
     var _ = require('./ext/lodash/dist/lodash');
-    var Async = require('./browser').get('async');
-    var Messaging = require('./browser').get('messaging');
+    var Browser = require('./browser');
+    var Async = Browser.get('async');
+    var Messaging = Browser.get('messaging');
 
     var Router = function (modules) {
         if (modules === undefined) {
@@ -10,6 +11,7 @@ define(function (require, exports, module) {
 
         this.modules = [];
         this.messaging = Messaging;
+        this.browser = Browser;
 
         for (var i in modules) {
             if (modules.hasOwnProperty(i)) {
