@@ -31,7 +31,7 @@ Features supported
 | DOM Parsing    |       ✓      |    ✓    |    ✓   |                 |
 | Hotkeys        |       ✓      |         |        |                 |
 | HTTP Client    |       ✓      |    ✓    |    ✓   |                 |
-| I18N           |       ✓      |    ✓    |        |                 |
+| I18N           |       ✓      |    ✓    |    ✓   |                 |
 | Messaging      |       ✓      |    ✓    |    ✓   |                 |
 | Notifications  |       ✓      |    ✓    |        |                 |
 | Persistance    |       ✓      |    ✓    |        |                 |
