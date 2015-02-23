@@ -36,4 +36,4 @@ Features supported
 | Notifications  |       ✓      |    ✓    |        |                 |
 | Persistance    |       ✓      |    ✓    |    ✓   |                 |
 | Resources      |       ✓      |    ✓    |    ✓   |                 |
-| Windowing/Tabs |       ✓      |    ✓    |        |                 |
+| Windowing/Tabs |       ✓      |    ✓    |    ✓   |                 |
