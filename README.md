@@ -34,6 +34,6 @@ Features supported
 | I18N           |       ✓      |    ✓    |    ✓   |                 |
 | Messaging      |       ✓      |    ✓    |    ✓   |                 |
 | Notifications  |       ✓      |    ✓    |        |                 |
-| Persistance    |       ✓      |    ✓    |        |                 |
+| Persistance    |       ✓      |    ✓    |    ✓   |                 |
 | Resources      |       ✓      |    ✓    |    ✓   |                 |
 | Windowing/Tabs |       ✓      |    ✓    |        |                 |
