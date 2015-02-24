@@ -1,14 +1,22 @@
 define(function (require, exports, module) {
     var Notifications = {
         send: function (title, subtext, image, actions, cb) {
-            // TODO
+            var n = new Notification(title, {
+              'body': subtext,
+            });
+
+            n.onclick = function () {
+                this.close();
+            };
+
+            return cb(n);
         },
-        hide: function (id, cb) {
+        hide: function (n, cb) {
             if (!cb) {
                 cb = function () {};
             }
 
-            // TODO
+            n.close();
         },
     };
 

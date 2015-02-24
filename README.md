@@ -33,7 +33,7 @@ Features supported
 | HTTP Client    |       ✓      |    ✓    |    ✓   |                 |
 | I18N           |       ✓      |    ✓    |    ✓   |                 |
 | Messaging      |       ✓      |    ✓    |    ✓   |                 |
-| Notifications  |       ✓      |    ✓    |        |                 |
+| Notifications  |       ✓      |    ✓    |    ✓   |                 |
 | Persistance    |       ✓      |    ✓    |    ✓   |                 |
 | Resources      |       ✓      |    ✓    |    ✓   |                 |
 | Windowing/Tabs |       ✓      |    ✓    |    ✓   |                 |
