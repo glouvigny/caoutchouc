@@ -1,6 +1,6 @@
 define(function (require, exports, module) {
     var Notifications = {
-        send: function (title, subtext, image, actions, cb) {
+        send: function (id, title, subtext, image, actions, cb) {
             var n = new Notification(title, {
               'body': subtext,
             });

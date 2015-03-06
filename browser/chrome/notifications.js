@@ -1,6 +1,6 @@
 define(function (require, exports, module) {
     var Notifications = {
-        send: function (title, subtext, image, actions, cb) {
+        send: function (id, title, subtext, image, actions, cb) {
             var options = {};
             options.type = 'basic';
 
@@ -23,7 +23,7 @@ define(function (require, exports, module) {
                 return {'title': button.title};
             });
 
-            return chrome.notifications.create('', options, function (id) {
+            return chrome.notifications.create(id, options, function (id) {
                 chrome.notifications.onButtonClicked.addListener(function (
                     nId, btnId
                 ) {
