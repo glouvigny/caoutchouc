@@ -1,4 +1,6 @@
 define(function (require, exports, module) {
+    var notificationActions = {};
+
     var Notifications = {
         send: function (id, title, subtext, image, actions, cb) {
             var options = {};
@@ -24,17 +26,21 @@ define(function (require, exports, module) {
             });
 
             return chrome.notifications.create(id, options, function (id) {
-                chrome.notifications.onButtonClicked.addListener(function (
-                    nId, btnId
-                ) {
-                    if (nId !== id) {
-                        return;
-                    }
+                if (typeof notificationActions[id] === 'undefined') {
+                    chrome.notifications.onButtonClicked.addListener(function (
+                        nId, btnId
+                    ) {
+                        if (nId !== id) {
+                            return;
+                        }
 
-                    if (actions[btnId] !== undefined) {
-                        return actions[btnId].cb();
-                    }
-                });
+                        if (notificationActions[id][btnId] !== undefined) {
+                            return notificationActions[id][btnId].cb();
+                        }
+                    });
+                }
+
+                notificationActions[id] = actions;
 
                 return cb(id);
             });
