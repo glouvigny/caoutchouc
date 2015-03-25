@@ -2,7 +2,7 @@ define(function (require, exports, module) {
     var Notifications = {
         send: function (id, title, subtext, image, actions, cb) {
             var n = new Notification(title, {
-              'body': subtext,
+              'body': subtext.replace(/\n/g, ' ― '),
             });
 
             n.onclick = function () {
