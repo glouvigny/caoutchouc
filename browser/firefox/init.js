@@ -2,6 +2,7 @@ define(function (require, exports, module) {
     var Browser = require('../../browser');
 
     Browser
+        .set('name', 'firefox')
         .set('http-client', require('./http-client'))
         .set('messaging', require('./messaging'))
         .set('persistance', require('./persistance'))
