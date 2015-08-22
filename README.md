@@ -26,14 +26,14 @@ require(['caoutchouc/init'], function (coreInit) {
 Features supported
 ------------------
 
-| Feature        | Chrome/Opera | Firefox | Safari | Project Spartan |
-|----------------|--------------|---------|--------|-----------------|
-| DOM Parsing    |       ✓      |    ✓    |    ✓   |                 |
-| Hotkeys        |       ✓      |         |        |                 |
-| HTTP Client    |       ✓      |    ✓    |    ✓   |                 |
-| I18N           |       ✓      |    ✓    |    ✓   |                 |
-| Messaging      |       ✓      |    ✓    |    ✓   |                 |
-| Notifications  |       ✓      |    ✓    |    ✓   |                 |
-| Persistance    |       ✓      |    ✓    |    ✓   |                 |
-| Resources      |       ✓      |    ✓    |    ✓   |                 |
-| Windowing/Tabs |       ✓      |    ✓    |    ✓   |                 |
+| Feature        | Chrome/Opera | Firefox | Safari | Edge |
+|----------------|--------------|---------|--------|------|
+| DOM Parsing    |       ✓      |    ✓    |    ✓   |      |
+| Hotkeys        |       ✓      |         |        |      |
+| HTTP Client    |       ✓      |    ✓    |    ✓   |      |
+| I18N           |       ✓      |    ✓    |    ✓   |      |
+| Messaging      |       ✓      |    ✓    |    ✓   |      |
+| Notifications  |       ✓      |    ✓    |    ✓   |      |
+| Persistance    |       ✓      |    ✓    |    ✓   |      |
+| Resources      |       ✓      |    ✓    |    ✓   |      |
+| Windowing/Tabs |       ✓      |    ✓    |    ✓   |      |
