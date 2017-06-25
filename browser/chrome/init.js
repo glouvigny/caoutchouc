@@ -12,6 +12,7 @@ define(function (require, exports, module) {
         .set('dom', require('./dom'))
         .set('i18n', require('./i18n'))
         .set('hotkeys', require('./hotkeys'))
+        .set('idle', require('./idle'))
         .set('tabs', require('./tabs'))
     ;
 
